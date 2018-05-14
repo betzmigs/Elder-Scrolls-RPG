@@ -1,0 +1,450 @@
+<div class="sheet-wrapper">
+
+<!-- Logo Header -->
+<div class="sheet-1colrow sheet-col" style="margin-bottom:-30px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/The_Elder_Scrolls_Logo.svg/2000px-The_Elder_Scrolls_Logo.svg.png" style="max-height: 100px; margin-left:21%;">    
+</div>
+    
+<!-- Base Character Information -->
+
+<div class="sheet-1colrow sheet-col">
+    
+    <div class="sheet-row">
+        <div class="sheet-item" style="width:14%"><label data-i18n="charactername">Character Name</label></div>
+        <div class="sheet-item" style="width:35%"><input name="attr_character_name" type="text"></div>
+        <div class="sheet-item" style="width:14%"><label data-i18n="playername">Player Name</label></div>
+        <div class="sheet-item" style="width:37%"><input name="attr_Player" type="text"></div>
+    </div>
+    
+    <div class="sheet-row">
+        <div class="sheet-item" style="width:5%"><label data-i18n="race">Race</label></div>
+        <div class="sheet-item" style="width:40%"><input name="attr_Race" type="text"></div>
+        <div class="sheet-item" style="width:10%"><label data-i18n="exp">Experience</label></div>
+        <div class="sheet-item" style="width:29%"><input name="attr_Exp" type="text"></div>
+    </div>
+    
+    <div class="sheet-row">
+        <div class="sheet-item" style="width:15%"><label data-i18n="birthsign">Birthsign</label></div>
+        <div class="sheet-item" style="width:45%"><input name="attr_Birthsign" type="text"></div>
+        <div class="sheet-item" style="width:7%"><label data-i18n="gender">Gender</label></div>
+        <div class="sheet-item" style="width:9%"><input name="attr_Gender" type="text"></div>
+    </div>
+    
+    <div class="sheet-row">
+        <div class="sheet-item" style="width:7%"><label data-i18n="build">Build</label></div>
+        <div class="sheet-item" style="width:14%"><input name="attr_Build" type="text"></div>
+        <div class="sheet-item" style="width:7%"><label data-i18n="dh-height">Height</label></div>
+        <div class="sheet-item" style="width:7%"><input name="attr_Height" type="text"></div>
+        <div class="sheet-item" style="width:7%"><label data-i18n="weight">Weight</label></div>
+        <div class="sheet-item" style="width:7%"><input name="attr_Weight" type="text"></div>
+        <div class="sheet-item" style="width:5%"><label data-i18n="age">Age</label></div>
+        <div class="sheet-item" style="width:7%"><input name="attr_Age" type="text"></div>
+        <div class="sheet-item" style="width:6%"><label data-i18n="past">Past</label></div>
+        <div class="sheet-item" style="width:33%"><input name="attr_Past" type="text"></div>
+    </div>
+    
+    
+    <div class="sheet-row">
+        <div class="sheet-item" style="width:11%"><label data-i18n="skincolor">Skin Colour</label></div>
+        <div class="sheet-item" style="width:12%"><input name="attr_Skin" type="text"></div>
+        <div class="sheet-item" style="width:11%"><label data-i18n="haircolor">Hair Colour</label></div>
+        <div class="sheet-item" style="width:12%"><input name="attr_Hair" type="text"></div>
+        <div class="sheet-item" style="width:11%"><label data-i18n="eyecolor">Eye Colour</label></div>
+        <div class="sheet-item" style="width:12%"><input name="attr_Eyes" type="text"></div>
+        <div class="sheet-item" style="width:12%"><label data-i18n="eliteadvance">Elite Advance</label></div>
+        <div class="sheet-item" style="width:19%"><input name="attr_EliteAdvance" type="text"></div>
+
+    </div>
+</div>
+
+<!-- Left Column -->
+
+<div class="sheet-col sheet-skills">
+    <hr>
+        <h3 data-i18n="basicskills">Basic Skills</h3>
+        <table data-i18n-list="skills-list">
+            <tr>
+                <th data-i18n="skillname">Skill Name</th>
+                <th>TN</th>
+                <th data-i18n="roll">Roll</th>
+                <th></th>
+                <th style="width:20px"></th>
+            </tr>
+            <tr data-i18n-list-item="acrobatics">
+                <td data-i18n="acrobaticsstrag">Acrobatics (Str, Ag)</td>
+                <td style="width:20px"><input name="attr_Acrobatics" type="text" value="0"></td>
+                <!--<td><button name="roll_Acrobatics" type="roll" value="/em rolls Acrobatics with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Acrobatics" type="roll" value="&{template:dh1ed} {{rollname=^{rollacrobatics}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Acrobatics} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Acrobatics" type="number" value="floor((@{Acrobatics})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="alchemy">
+                <td data-i18n="alchemyint">Alchemy (Int)</td>
+                <td style="width:40px"><input name="attr_Alchemy" type="text" value="0"></td>
+                <!--<td><button name="roll_Alchemy" type="roll" value="/em rolls Alchemy with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Alchemy" type="roll" value="&{template:dh1ed} {{rollname=^{rollalchemy}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Alchemy} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Alchemy" type="number" value="floor((@{Alchemy}+0.5)*@{Int}+@{Alchemy2}+@{Alchemy3}+@{Alchemy4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="alteration">
+                <td data-i18n="alterationwp">Alteration (Wp)</td>
+                <td style="width:40px"><input name="attr_Alteration" type="text" value="0"></td>
+                <!--<td><button name="roll_Alteration" type="roll" value="/em rolls Alteration with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Alteration" type="roll" value="&{template:dh1ed} {{rollname=^{rollalteration}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Alteration} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Alteration" type="number" value="floor((@{Alteration}+0.5)*@{Wp}+@{Alteration2}+@{Alteration3}+@{Alteration4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="combatstyle">
+                <td data-i18n="combatstylestrag">Combat Style (Str, Ag)</td>
+                <td style="width:40px"><input name="attr_CombatStyle" type="text" value="0"></td>
+                <!--<td><button name="roll_CombatStyle" type="roll" value="/em rolls CombatStyle with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_CombatStyle" type="roll" value="&{template:dh1ed} {{rollname=^{rollcombatstyle}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{CombatStyle} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_CombatStyle" type="number" value="floor((@{CombatStyle}+0.5)*@{Str}+@{CombatStyle2}+@{CombatStyle3}+@{CombatStyle4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="athletics">
+                <td data-i18n="athleticsstrend">Athletics (Str, End)</td>
+                <td style="width:40px"><input name="attr_Athletics" type="text" value="0"></td>
+                <!--<td><button name="roll_Athletics" type="roll" value="/em rolls Athletics with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Athletics" type="roll" value="&{template:dh1ed} {{rollname=^{rollathletics}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Athletics} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Athletics" type="number" value="floor((@{Athletics}+0.5)*@{End}+@{Athletics2}+@{Athletics3}+@{Athletics4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="conjuration">
+                <td data-i18n="conjurationwp">Conjuration (Wp)</td>
+                <td style="width:40px"><input name="attr_Conjuration" type="text" value="0"></td>
+                <!--<td><button name="roll_Conjuration" type="roll" value="/em rolls Conjuration with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Conjuration" type="roll" value="&{template:dh1ed} {{rollname=^{rollconjuration}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Conjuration} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Conjuration" type="number" value="floor((@{Conjuration}+0.5)*@{Wp}+@{Conjuration2}+@{Conjuration3}+@{Conjuration4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="commerce">
+                <td data-i18n="commerceintprs">Commerce (Int, Prs)</td>
+                <td style="width:40px"><input name="attr_Commerce" type="text" value="0"></td>
+                <!--<td><button name="roll_Commerce" type="roll" value="/em rolls Commerce with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Commerce" type="roll" value="&{template:dh1ed} {{rollname=^{rollcommerce}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Commerce} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Commerce" type="number" value="floor((@{Commerce}+0.5)*@{Prs}+@{Commerce2}+@{Commerce3}+@{Commerce4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="deceive">
+                <td data-i18n="deceiveintprs">Deceive (Int, Prs)</td>
+                <td style="width:40px"><input name="attr_Deceive" type="text" value="0"></td>
+                <!--<td><button name="roll_Deceive" type="roll" value="/em rolls Deceive with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Deceive" type="roll" value="&{template:dh1ed} {{rollname=^{rolldeceive}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Deceive} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Deceive" type="number" value="floor((@{Deceive}+0.5)*@{Prs}+@{Deceive2}+@{Deceive3}+@{Deceive4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="destruction">
+                <td data-i18n="destructionwp">Destruction (Wp)</td>
+                <td style="width:40px"><input name="attr_Destruction" type="text" value="0"></td>
+                <!--<td><button name="roll_Destruction" type="roll" value="/em rolls Destruction with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Destruction" type="roll" value="&{template:dh1ed} {{rollname=^{rolldestruction}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Destruction} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Destruction" type="number" value="floor((@{Destruction}+0.5)*@{Wp}+@{Destruction2}+@{Destruction3}+@{Destruction4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="enchant">
+                <td data-i18n="enchantint">Enchant (Int)</td>
+                <td style="width:40px"><input name="attr_Enchant" type="text" value="0"></td>
+                <!--<td><button name="roll_Enchant" type="roll" value="/em rolls Enchant with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Enchant" type="roll" value="&{template:dh1ed} {{rollname=^{rollenchant}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Enchant} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Enchant" type="number" value="floor((@{Enchant}+0.5)*@{Int}+@{Enchant2}+@{Enchant3}+@{Enchant4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="evade">
+                <td data-i18n="evadeag">Evade (Ag)</td>
+                <td style="width:40px"><input name="attr_Evade" type="text" value="0"></td>
+                <!--<td><button name="roll_Evade" type="roll" value="/em rolls Evade with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Evade" type="roll" value="&{template:dh1ed} {{rollname=^{rollevade}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Evade} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Enchant" type="number" value="floor((@{Enchant}+0.5)*@{Int}+@{Enchant2}+@{Enchant3}+@{Evade4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="illusion">
+                <td data-i18n="illusionwp">Illusion (Wp)</td>
+                <td style="width:40px"><input name="attr_Illusion" type="text" value="0"></td>
+                <!--<td><button name="roll_Illusion" type="roll" value="/em rolls Illusion with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Illusion" type="roll" value="&{template:dh1ed} {{rollname=^{rollillusion}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Illusion} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Illusion" type="number" value="floor((@{Illusion}+0.5)*@{Wp}+@{Illusion2}+@{Illusion3}+@{Illusion4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="investigate">
+                <td data-i18n="investigateintprc">Investigate (Int, Prc)</td>
+                <td style="width:40px"><input name="attr_Investigate" type="text" value="0"></td>
+                <!--<td><button name="roll_Investigate" type="roll" value="/em rolls Investigate with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Investigate" type="roll" value="&{template:dh1ed} {{rollname=^{rollinvestigate}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Investigate} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Investigate" type="number" value="floor((@{Investigate}+0.5)*@{Int}+@{Investigate2}+@{Investigate3}+@{Investigate4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="logic">
+                <td data-i18n="logicintprc">Logic (Int, Prc)</td>
+                <td style="width:40px"><input name="attr_Logic" type="text" value="0"></td>
+                <!--<td><button name="roll_Logic" type="roll" value="/em rolls Logic with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Logic" type="roll" value="&{template:dh1ed} {{rollname=^{rolllogic}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Logic} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Logic" type="number" value="floor((@{Logic}+0.5)*@{Int}+@{Logic2}+@{Logic3}+@{Logic4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="lore">
+                <td data-i18n="loreint">Lore (Int)</td>
+                <td style="width:40px"><input name="attr_Lore" type="text" value="0"></td>
+                <!--<td><button name="roll_Lore" type="roll" value="/em rolls Lore with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Lore" type="roll" value="&{template:dh1ed} {{rollname=^{rolllore}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Lore} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Lore" type="number" value="floor((@{Lore}+0.5)*@{Int}+@{Lore2}+@{Lore3}+@{Lore4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="mysticism">
+                <td data-i18n="mysticismwp">Mysticism (Wp)</td>
+                <td style="width:30px"><input name="attr_Mysticism" type="text" value="0"></td>
+                <!--<td><button name="roll_Mysticism" type="roll" value="/em rolls Mysticism with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Mysticism" type="roll" value="&{template:dh1ed} {{rollname=^{rollmysticism}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Mysticism} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Mysticism" type="number" value="floor((@{Mysticism}+0.5)*@{Wp}+@{Mysticism2}+@{Mysticism3}+@{Mysticism4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="navigate">
+                <td data-i18n="navigateintprc">Navigate (Int, Prc)</td>
+                <td style="width:40px"><input name="attr_Navigate" type="text" value="0"></td>
+                <!--<td><button name="roll_Navigate" type="roll" value="/em rolls Navigate with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Navigate" type="roll" value="&{template:dh1ed} {{rollname=^{rollnavigate}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Navigate} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Navigate" type="number" value="floor((@{Navigate}+0.5)*@{Int}+@{Navigate2}+@{Navigate3}+@{Navigate4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="observe">
+                <td data-i18n="observeprc">Observe (Prc)</td>
+                <td style="width:40px"><input name="attr_Observe" type="text" value="0"></td>
+                <!--<td><button name="roll_Observe" type="roll" value="/em rolls Observe with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Observe" type="roll" value="&{template:dh1ed} {{rollname=^{rollobserve}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Observe} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Observe" type="number" value="floor((@{Observe}+0.5)*@{Prc}+@{Observe2}+@{Observe3}+@{Observe4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="persuade">
+                <td data-i18n="persuadestrprs">Persuade (Str, Prs)</td>
+                <td style="width:40px"><input name="attr_Persuade" type="text" value="0"></td>
+                <!--<td><button name="roll_Persuade" type="roll" value="/em rolls Persuade with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Persuade" type="roll" value="&{template:dh1ed} {{rollname=^{rollpersuade}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Persuade} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Persuade" type="number" value="floor((@{Persuade}+0.5)*@{Prs}+@{Persuade2}+@{Persuade3}+@{Persuade4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="restoration">
+                <td data-i18n="restorationwp">Restoration (Wp)</td>
+                <td style="width:40px"><input name="attr_Restoration" type="text" value="0"></td>
+                <!--<td><button name="roll_Restoration" type="roll" value="/em rolls Restoration with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Restoration" type="roll" value="&{template:dh1ed} {{rollname=^{rollrestoration}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Restoration} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Restoration" type="number" value="floor((@{Restoration}+0.5)*@{Wp}+@{Restoration2}+@{Restoration3}+@{Restoration4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="ride">
+                <td data-i18n="rideag">Ride (Ag)</td>
+                <td style="width:40px"><input name="attr_Ride" type="text" value="0"></td>
+                <!--<td><button name="roll_Ride" type="roll" value="/em rolls Ride with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Ride" type="roll" value="&{template:dh1ed} {{rollname=^{rollride}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Ride} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Ride" type="number" value="floor((@{Ride}+0.5)*@{Ag}+@{Ride2}+@{Ride3}+@{Ride4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="stealth">
+                <td data-i18n="stealthagprc">Stealth (Ag, Prc)</td>
+                <td style="width:40px"><input name="attr_Stealth" type="text" value="0"></td>
+                <!--<td><button name="roll_Stealth" type="roll" value="/em rolls Stealth with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Stealth" type="roll" value="&{template:dh1ed} {{rollname=^{rollstealth}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Stealth} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Stealth" type="number" value="floor((@{Stealth}+0.5)*@{Ag}+@{Stealth2}+@{Stealth3}+@{Stealth4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="subterfuge">
+                <td data-i18n="subterfugeagint">Subterfuge (Ag, Int)</td>
+                <td style="width:40px"><input name="attr_Subterfuge" type="text" value="0"></td>
+                <!--<td><button name="roll_Subterfuge" type="roll" value="/em rolls Subterfuge with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Subterfuge" type="roll" value="&{template:dh1ed} {{rollname=^{rollsubterfuge}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Subterfuge} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Subterfuge" type="number" value="floor((@{Subterfuge}+0.5)*@{Ag}+@{Subterfuge2}+@{Subterfuge3}+@{Subterfuge4})">
+                </button></td>
+            </tr>
+            <tr data-i18n-list-item="survival">
+                <td data-i18n="survivalintprc">Survival (Int, Prc)</td>
+                <td style="width:40px"><input name="attr_Survival" type="text" value="0"></td>
+                <!--<td><button name="roll_Survival" type="roll" value="/em rolls Survival with {{roll=[[1d100 &{tracker}]]}}">-->
+                <td><button name="roll_Survival" type="roll" value="&{template:dh1ed} {{rollname=^{rollsurvival}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Survival} + ?{Modifier|0}]]}}">
+                <input disabled="true" name="attr_Survival" type="number" value="floor((@{Survival}+0.5)*@{Int}+@{Survival2}+@{Survival3}+@{Survival4})">
+                </button></td>
+            </tr>      
+        </table>
+
+<h3 data-i18n="talentsandntraits">Talents & Traits</h3>
+<fieldset class="repeating_talents">
+    <input name="attr_reptalent" type="text">
+</fieldset>
+
+</div>
+
+<!-- Mid Column / Characteristics -->
+
+<div class="sheet-col sheet-characteristics">
+
+<h3 data-i18n="characteristics">Characteristics</h3>
+
+    <button name="roll_Str" type="roll" value="&{template:dh1ed} {{rollname=^{rollstr}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Str} + ?{Modifier|0}]]}}">
+    <label data-i18n="strengthstr">Strength (Str)</label></button><br>
+    <input name="attr_Str" type="text" value="0">
+
+    <button name="roll_End" type="roll" value="&{template:dh1ed} {{rollname=^{rollend}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{End} + ?{Modifier|0}]]}}">
+    <label data-i18n="enduranceend">Endurance</label></button><br>
+    <input name="attr_End" type="text" value="0">
+
+    <button name="roll_Ag" type="roll" value="&{template:dh1ed} {{rollname=^{rollag}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Ag} + ?{Modifier|0}]]}}">
+    <label data-i18n="agilityag">Agility</label></button><br>
+    <input name="attr_Ag" type="text" value="0">
+
+    <button name="roll_Int" type="roll" value="&{template:dh1ed} {{rollname=^{rollint}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Int} + ?{Modifier|0}]]}}">
+    <label data-i18n="intelligenceint">Intelligence</label></button><br>
+    <input name="attr_Int" type="text" value="0">
+
+    <button name="roll_Wp" type="roll" value="&{template:dh1ed} {{rollname=^{rollwp}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Wp} + ?{Modifier|0}]]}}">
+    <label data-i18n="willpowerwp">Willpower</label></button><br>
+    <input name="attr_Wp" type="text" value="0">
+
+    <button name="roll_Prc" type="roll" value="&{template:dh1ed} {{rollname=^{rollprc}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Prc} + ?{Modifier|0}]]}}">
+    <label data-i18n="perceptionprc">Perception</label></button><br>
+    <input name="attr_Prc" type="text" value="0">
+
+    <button name="roll_Prs" type="roll" value="&{template:dh1ed} {{rollname=^{rollprs}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Prs} + ?{Modifier|0}]]}}">
+    <label data-i18n="personalityprs">Personality</label></button><br>
+    <input name="attr_Prs" type="text" value="0">
+
+    <button name="roll_Lck" type="roll" value="&{template:dh1ed} {{rollname=^{rolllck}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{Lck} + ?{Modifier|0}]]}}">
+    <label data-i18n="lucklck">Luck</label></button><br>
+    <input name="attr_Lck" type="text" value="0">
+    
+</div>
+
+<h3 data-i18n="weapontrainings">Weapon Trainings</h3>
+<fieldset class="repeating_weapontalents">
+    <div class="sheet-row">
+        <div class="sheet-item sheet-tiny" style="width:16%;">
+            <input name="attr_weapontrainingclass" type="text">
+        </div>
+        <div class="sheet-item sheet-large">
+            <label data-i18n="weapontraining">Weapon Training</label>
+        </div>
+        <div class="sheet-item sheet-big sheet-brackets">
+            <input name="attr_weapontraining" type="text">
+        </div>
+    </div>
+</fieldset>
+<!--Roll Template test-->
+<rolltemplate class="sheet-rolltemplate-dh1ed">
+    <table>
+        <tr><th>{{rollname}}</th></tr>
+        <td><img src="http://i.imgur.com/g1SVcwZ.png" height="100%" width="auto" max-width="100px"></td>
+        {{#target}}
+        <tr>
+            <td><span class="tcat" data-i18n="target:">Target: </span>{{target}}</td></tr>
+        {{/target}}
+        {{#threshold}}
+        <tr>
+            <td><span class="tcat" data-i18n="threshold:">Threshold: </span>{{threshold}}</td></tr>
+        {{/threshold}}
+        {{#rollGreater() roll 0}}
+        <tr>
+            <td><span class="tcat" data-i18n="success:">Success : </span>{{roll}}
+        </tr>
+        {{/rollGreater() roll 0}}
+        {{#rollLess() roll 0}}
+        <tr>
+            <td><span class="tcat" data-i18n="failure:">Failure : </span>{{roll}}
+        </tr>
+        {{/rollLess() roll 0}}
+        {{#psy}}
+        <tr>
+            <td><span class="tcat" data-i18n="resultpsy:">Result Psy: </span>&nbsp;{{psy}}</td></tr>
+        {{/psy}}
+        {{#damage}}
+        <tr>
+            <td><span class="tcat" data-i18n="damage:">Damage: </span>&nbsp;{{damage}}</td></tr>
+        {{/damage}}
+        {{#special}}
+        <tr>
+            <td><b><span class="tcat" data-i18n="special:">Special:  </span></b>&nbsp;{{special}}</td></tr>
+        {{/special}}
+    </table>
+</rolltemplate>
+
+
+<!-- Page 2 -->
+
+
+<div class="sheet-col sheet-skills">
+<hr>
+<h3 data-i18n="advancedskills">Advanced Skills</h3>
+<table>
+    <tr>
+        <th data-i18n="skillname">Skill Name</th>
+        <th></th>
+        <th>10</th>
+        <th>20</th>
+        <th style="width:60px">TN</th>
+        <th data-i18n="roll">Roll</th>
+    </tr>
+    <tr>
+        <td data-i18n="speaklanguagelowgothic">Speak Language (Low Gothic)</td>
+        <td><input name="attr_speaklow1" type="checkbox" value="0.5"></td>
+        <td><input name="attr_speaklow2" type="checkbox" value="10"></td>
+        <td><input name="attr_speaklow3" type="checkbox" value="10"></td>
+        <td style="width:60px"><input name="attr_speaklow4" type="text" value="0"></td>
+        <td><button name="roll_speaklow" type="roll" value="&{template:dh1ed} {{rollname=^{rollspeaklow}}} {{roll=[[(@{speaklow}+?{Modifier|0}-1d100)/10]]}} {{target=[[@{speaklow} + ?{Modifier|0}]]}}">
+            <input disabled="true" name="attr_speaklow" type="number" value="floor((@{speaklow1}+0.5)*@{Int}+@{speaklow2}+@{speaklow3}+@{speaklow4})">
+        </button></td>
+    </tr>
+</table>
+<fieldset class="repeating_advancedskills">
+<table>
+    <tr>
+    <td>
+    <div class="sheet-row">
+        <div class="sheet-item sheet-bigger">
+            <input class="sheet-baseinfo" name="attr_advancedskillname" type="text">
+        </div>
+        <div class="sheet-item sheet-med">
+            <select class="charaselect" name="attr_advancedskillcharacteristic">
+                <option value="@{S}" data-i18n="(str)">(Str)</option>
+                <option value="@{T}" data-i18n="(end)">(End)</option>
+                <option value="@{Ag}" data-i18n="(ag)">(Ag)</option>
+                <option value="@{Int}" data-i18n="(int)">(Int)</option>
+                <option value="@{Per}" data-i18n="(prs)">(Prs)</option>
+                <option value="@{Wp}" data-i18n="(wp)">(Wp)</option>
+                <option value="@{Fel}" data-i18n="(prc)">(Prc)</option>
+                <option value="@{Fel}" data-i18n="(lck)">(Lck)</option>
+            </select>
+        </div>
+    </div>
+    </td>
+    <td><input name="attr_advancedskillbox1" type="checkbox" value="0.5"></td>
+    <td><input name="attr_advancedskillbox2" type="checkbox" value="10"></td>
+    <td><input name="attr_advancedskillbox3" type="checkbox" value="10"></td>
+    <td style="width:60px"><input name="attr_advancedskillbox4" type="text" value="0"></td>
+        <td><button name="roll_advanceskill" type="roll" value="&{template:dh1ed} {{rollname=@{advancedskillname}}} {{roll=[[1d100 &{tracker}]]}} {{target=[[@{advancedskill} + ?{Modifier|0}]]}}">
+        <input disabled="true" name="attr_advancedskill" type="number" value="floor((@{advancedskillbox1}+0.5)*@{advancedskillcharacteristic}+@{advancedskillbox2}+@{advancedskillbox3}+@{advancedskillbox4})">
+    </button></td>
+    </tr>
+</table>
+</fieldset>
+<hr>
+
+
+<!-- Armor! -->
+
+<h3 data-i18n="armor">Armour</h3>
+<div class="sheet-armourblock"></div>
+<div class="sheet-quickborder sheet-armourblock">
+<label data-i18n="head">Head</label> <input name="attr_Headarmourvalue" type="text"> <label>(100) Type</label> <input name="attr_Headarmourtype" type="text">
+</div><br>
+<div class="sheet-quickborder sheet-armourblock">
+<label data-i18n="leftarm">Left Arm</label> <input name="attr_LeftArmarmourvalue" type="text"> <label>(90-99) Type</label> <input name="attr_LeftArmarmourtype" type="text">
+</div>
+<div class="sheet-quickborder sheet-armourblock">
+<label data-i18n="body">Body</label> <input name="attr_Bodyarmourvalue" type="text"> <label>(1-59) Type</label> <input name="attr_Bodyarmourtype" type="text">
+</div>
+<div class="sheet-quickborder sheet-armourblock">
+<label data-i18n="rightarm">Right Arm</label> <input name="attr_RightArmarmourvalue" type="text"> <label>(80-89) Type</label> <input name="attr_RightArmarmourtype" type="text">
+</div>
+<div class="sheet-quickborder sheet-armourblock" style="margin: 20px auto auto 11%;">
+<label data-i18n="leftleg">Left Leg</label> <input name="attr_LeftLegarmourvalue" type="text"> <label>(70-79) Type</label> <input name="attr_LeftLegarmourtype" type="text">
+</div>
+<div class="sheet-quickborder sheet-armourblock" style="margin: 20px auto auto 11%;">
+<label data-i18n="rightleg">Right Leg</label> <input name="attr_RightLegarmourvalue" type="text"> <label>(60-69) Type</label> <input name="attr_RightLegarmourtype" type="text">
+</div>
+</div>
